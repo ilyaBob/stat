@@ -16,6 +16,12 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-header">Меню</li>
                 <li class="nav-item">
+                    <a href="{{ route('trade.index') }}" class="nav-link">
+                        <i class="nav-icon far fa-image"></i>
+                        <p>Торговля</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="/" class="nav-link">
                         <i class="nav-icon far fa-image"></i>
                         <p>Продукты</p>
@@ -34,6 +40,7 @@
                         <p>Продукты</p>
                     </a>
                 </li>
+
             </ul>
         </nav>
     </div>

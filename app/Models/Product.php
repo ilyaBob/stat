@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string $title
  * @property numeric $quantity_per_unit
  * @property string $unit
+ * @property int $price
  * @property string $created_at
  * @property string $updated_at
  */
@@ -24,5 +25,6 @@ class Product extends Model
         'title',
         'quantity_per_unit',
         'unit',
+        'price',
     ];
 }

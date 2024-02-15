@@ -17,6 +17,7 @@ class AbstractProductRequest extends FormRequest
             'title' => 'required|string|required',
             'quantity_per_unit' => 'required|numeric|required',
             'unit' => 'required|string|required',
+            'price' => 'required|integer|required',
         ];
     }
 }

@@ -41,6 +41,7 @@
                                     <x-input name="title" label="Название продукта" id="title" placeholder="Название продукта" />
                                     <x-input name="quantity_per_unit" label="Колличество за единицу" id="quantity_per_unit" placeholder="Колличество за единицу" />
                                     <x-input name="unit" label="Единица измерения" id="unit" placeholder="Единица измерения" />
+                                    <x-input name="price" label="Цена за ед." id="price" placeholder="Цена за ед." />
                                 </div>
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-primary">Добавить</button>
