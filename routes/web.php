@@ -17,13 +17,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [MainController::class, 'index']);
+Route::get('/', [MainController::class, 'index'])->name('main.index');
 
 Route::resource('products', ProductController::class);
 Route::resource('trade', TradeController::class);
 
-Route::group(['as' => 'admin.'], function () {
+Route::group(['as' => 'admin.', 'middleware' => 'admin'], function () {
     Route::resource('products-am', ProductAdminController::class);
 });
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
