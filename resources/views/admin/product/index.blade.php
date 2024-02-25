@@ -4,7 +4,7 @@
     */
 @endphp
 
-@extends('main.index')
+@extends('layouts.admin')
 @section('container')
     <div class="content-wrapper">
         <section class="content-header">

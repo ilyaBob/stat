@@ -1,6 +1,6 @@
 @php
     /**
-    * @var \App\Models\Product[] $products
+    * @var \App\Models\Product $product
     */
 @endphp
 
@@ -11,13 +11,13 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Добавить продукты</h1>
+                        <h1>Изменить продукт</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="/">Главная</a></li>
                             <li class="breadcrumb-item"><a href="/">Продукты</a></li>
-                            <li class="breadcrumb-item active">Добавить продукты</li>
+                            <li class="breadcrumb-item active">Изменить продукт</li>
                         </ol>
                     </div>
                 </div>
@@ -33,23 +33,23 @@
                                 <h3 class="card-title">Заполните форму</h3>
                             </div>
                             <form
-                                action="{{ route('trade.store') }}"
+                                action="{{ route('products.update', ['product' => $product->id]) }}"
                                 method="POST">
                                 @csrf
-                                @method("POST")
+                                @method("PUT")
                                 <div class="card-body">
-
-                                    @foreach($products as $product)
-                                        <x-input
-                                            name="products[{{$product->id}}]"
-                                            label="{{ $product->title }}"
-                                            id="title" placeholder="{{ $product->unit }}"
-                                        />
-                                    @endforeach
-
+                                    <x-input name="title" label="Название продукта"
+                                             id="title"
+                                             placeholder="Название продукта"
+                                             :value="$product->title"/>
+                                    <x-input name="price"
+                                             label="Цена за ед."
+                                             id="unit"
+                                             placeholder="Цена за единицу."
+                                             :value="$product->getPrice()"/>
                                 </div>
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary">Добавить</button>
+                                    <button type="submit" class="btn btn-primary">Изменить</button>
                                 </div>
                             </form>
                         </div>

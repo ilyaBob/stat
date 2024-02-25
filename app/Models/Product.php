@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
@@ -27,4 +28,14 @@ class Product extends Model
         'unit',
         'price',
     ];
+
+    public function user(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'product_users')->withPivot('price');
+    }
+
+    public function getPrice()
+    {
+        return $this->user()->wherePivot('user_id', auth()->user()->id)->first()->pivot->price;
+    }
 }

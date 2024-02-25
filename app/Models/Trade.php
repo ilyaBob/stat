@@ -18,6 +18,7 @@ class Trade extends Model
 
     protected $fillable = [
         'status',
+        'user_id',
         'date_trade',
     ];
 

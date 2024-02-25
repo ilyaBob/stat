@@ -16,7 +16,6 @@ class ProductFactory extends Factory
             'title' => $this->faker->word(),
             'quantity_per_unit' => rand(1, 10),
             'unit' => ProductEnum::getListUnits()[rand(0, count(ProductEnum::getListUnits()) - 1)],
-            'price' => rand(100, 300),
         ];
     }
 }

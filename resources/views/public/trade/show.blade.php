@@ -4,7 +4,7 @@
     */
 @endphp
 
-@extends('main.index')
+@extends('layouts.admin')
 @section('container')
     <div class="content-wrapper">
         <section class="content-header">
@@ -37,9 +37,9 @@
                                         <tr>
                                             <td>{{ $product['title'] }}</td>
                                             <td>({{$product['total_product_sold']}}
-                                                {{$product['unit']}}
-                                                ) {{ number_format($product['total_price_product'], 0, ',', ' ') }}
-                                                руб.
+                                                {{$product['unit']}})
+                                                <br>{{ number_format($product['total_price_product'], 0, ',', ' ') }}
+                                                р
                                             </td>
                                         </tr>
                                     @endforeach
@@ -70,7 +70,7 @@
                                     </tr>
                                     <tr>
                                         <td>Итого</td>
-                                        <td>{{ number_format($tradeProducts['total_price'], 0, ',', ' ') }} руб.</td>
+                                        <td>{{ number_format($tradeProducts['total_price'], 0, ',', ' ') }} р</td>
                                     </tr>
                                 </table>
                             </div>

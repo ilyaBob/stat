@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Requests\Products;
+namespace App\Http\Requests\ProductsAm;
 
-class StoreProductRequest extends AbstractProductRequest
+class StoreAmProductRequest extends AbstractAmProductRequest
 {
     public function rules(): array
     {

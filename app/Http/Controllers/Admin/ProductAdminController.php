@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Products\StoreProductRequest;
-use App\Http\Requests\Products\UpdateProductRequest;
+use App\Http\Requests\ProductsAm\StoreAmProductRequest;
+use App\Http\Requests\ProductsAm\UpdateAmProductRequest;
 use App\Models\Product;
 
 class ProductAdminController extends Controller
@@ -20,7 +20,7 @@ class ProductAdminController extends Controller
         return view('admin.product.create');
     }
 
-    public function store(StoreProductRequest $request)
+    public function store(StoreAmProductRequest $request)
     {
         $data = $request->validated();
         Product::create($data);
@@ -32,7 +32,7 @@ class ProductAdminController extends Controller
         return view('admin.product.edit', compact('products_am'));
     }
 
-    public function update(UpdateProductRequest $request, Product $products_am)
+    public function update(UpdateAmProductRequest $request, Product $products_am)
     {
         $data = $request->validated();
         $products_am->update($data);

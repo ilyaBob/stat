@@ -9,19 +9,26 @@ use App\Models\Enum\TradeEnum;
 use App\Models\Product;
 use App\Models\Trade;
 use App\Models\TradeProduct;
+use Illuminate\Support\Facades\DB;
 
 class TradeController extends Controller
 {
     public function index()
     {
-        $trades = Trade::query()->paginate(10);
+        $user = auth()->user();
+
+        if($user->products()->wherePivotNull('price')->count() > 0){
+            return view('public.trade.emptyProduct');
+        }
+
+        $trades = Trade::query()->where('user_id', $user->id)->paginate(10);
 
         return view('public.trade.index', compact('trades'));
     }
 
     public function create()
     {
-        $products = Product::all();
+        $products = auth()->user()->products;
 
         return view('public.trade.create', compact('products'));
     }
@@ -30,24 +37,29 @@ class TradeController extends Controller
     {
         $data = $request->validated();
 
+        DB::beginTransaction();
         $trade = Trade::create([
-            'status' => TradeEnum::STATUS_START
+            'status' => TradeEnum::STATUS_START,
+            'user_id' => auth()->user()->id,
         ]);
 
         $tradeProductsData = [];
 
         foreach ($data['products'] as $productId => $amount) {
             if (isset($amount)) {
+                $amount = str_replace(',', '.', $amount);
                 $tradeProductsData[] = [
                     'trade_id' => $trade->id,
                     'product_id' => $productId,
                     'initial_quantity' => $amount,
-                    'price_for_unit' => Product::find($productId)->price,
+                    'price_for_unit' => Product::find($productId)->getPrice(),
+                    'created_at' => date('Y-m-d H:m:s'),
                 ];
             }
         }
 
         TradeProduct::query()->insert($tradeProductsData);
+        DB::commit();
 
         return redirect()->route('trade.index');
     }

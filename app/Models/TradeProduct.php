@@ -15,6 +15,8 @@ use Illuminate\Support\Collection;
  */
 class TradeProduct extends Model
 {
+    public $timestamps = true;
+
     public function products(): BelongsTo
     {
         return $this->belongsTo(Product::class, 'product_id');

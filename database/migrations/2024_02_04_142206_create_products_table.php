@@ -14,7 +14,6 @@ return new class extends Migration
             $table->string('title');
             $table->decimal('quantity_per_unit');
             $table->string('unit');
-            $table->integer('price');
 
             $table->timestamps();
             $table->softDeletes();

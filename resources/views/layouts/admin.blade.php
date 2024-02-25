@@ -39,7 +39,6 @@
 </div>
 
 @include('includes.scripts')
-@yield('another-scripts-for-page')
 
 
 </body>

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Products;
+namespace App\Http\Requests\Setting;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateProductRequest extends FormRequest
+class AbstractSettingRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -14,7 +14,8 @@ class UpdateProductRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'price' => 'required'
+            'products' => 'array',
+            'products.*' => 'integer|required',
         ];
     }
 }

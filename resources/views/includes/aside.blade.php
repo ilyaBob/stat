@@ -8,7 +8,7 @@
     <div class="sidebar">
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="info">
-                <a href="#" class="d-block">Имя пользоватеял</a>
+                <a href="#" class="d-block">{{auth()->user()?->name}}</a>
             </div>
         </div>
 
@@ -22,24 +22,27 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/" class="nav-link">
+                    <a href="{{ route('products.index') }}" class="nav-link">
                         <i class="nav-icon far fa-image"></i>
                         <p>Продукты</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/" class="nav-link">
+                    <a href="{{ route('setting.index') }}" class="nav-link">
                         <i class="nav-icon far fa-image"></i>
                         <p>Настройки</p>
                     </a>
                 </li>
-                <li class="nav-header">Меню админа</li>
-                <li class="nav-item">
-                    <a href="{{ route('admin.products-am.index') }}" class="nav-link">
-                        <i class="nav-icon far fa-image"></i>
-                        <p>Продукты</p>
-                    </a>
-                </li>
+
+                @if(auth()->user()?->isAdmin())
+                    <li class="nav-header">Меню админа</li>
+                    <li class="nav-item">
+                        <a href="{{ route('admin.products-am.index') }}" class="nav-link">
+                            <i class="nav-icon far fa-image"></i>
+                            <p>Продукты</p>
+                        </a>
+                    </li>
+                @endif
 
             </ul>
         </nav>

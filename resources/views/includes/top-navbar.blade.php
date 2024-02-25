@@ -9,14 +9,17 @@
         <li class="nav-item d-none d-sm-inline-block">
             <a href="#" class="nav-link">Contact</a>
         </li>
-        @auth()
-            <li class="nav-item d-none d-sm-inline-block">
-                <form action="{{route('logout')}}" method="post">
-                    @csrf
-                    <button class="btn btn-primary">Выйти</button>
-                </form>
-            </li>
-        @endauth
+        <li class="nav-item d-none d-sm-inline-block">
+            @auth
+            <form action="{{route('logout')}}" method="post">
+                @csrf
+                <button class="btn btn-primary">Выйти</button>
+            </form>
+            @endauth
+            @guest
+                <a class="btn btn-primary" href="{{route('home')}}">Войти</a>
+            @endguest
+        </li>
 
     </ul>
 
