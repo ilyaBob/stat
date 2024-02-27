@@ -5,6 +5,7 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\Public\ProductController;
 use App\Http\Controllers\Public\SettingController;
 use App\Http\Controllers\Public\TradeController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*

@@ -25,28 +25,14 @@ class SettingController extends Controller
 
     public function customSync($data): void
     {
-
         $user = auth()->user();
 
         if (isset($data)) {
-
-            $userProducts = $user->products;
-
-            $onDelete = [];
-            foreach ($userProducts as $userProduct) {
-                if (!in_array($userProduct->id, $data)) {
-                    $onDelete[] = $userProduct->id;
-                }
-            }
-
-            $user->products()->detach($onDelete);
+            $user->products()->whereNotIn('id', $data)->detach();
 
             $productIds = array_diff($data, $user->refresh()->products->pluck('id')->toArray());
             $user->products()->attach($productIds);
-
         }
-
-
     }
 
 }

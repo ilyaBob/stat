@@ -26,7 +26,6 @@ class Product extends Model
         'title',
         'quantity_per_unit',
         'unit',
-        'price',
     ];
 
     public function user(): BelongsToMany
