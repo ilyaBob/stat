@@ -9,7 +9,7 @@ class StoreDeliveryRequest extends AbstractTradeRequest
     protected function prepareForValidation()
     {
         $user = auth()->user();
-        $number = $user->deliveries()->orderBy('number', 'DESC')->first()->number;
+        $number = $user->deliveries()->orderBy('number', 'DESC')->first()->number ?? 0;
         $this->merge([
             'user_id' => $user->id,
             'status' => 1,

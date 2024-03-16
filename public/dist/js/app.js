@@ -19,3 +19,7 @@ $('#add-product').on('click', function (){
 
     $('.card-body > .container-custom').append(productForm);
 });
+
+$('.container-custom').on('click', '.js-delete', function (){
+    $(this).parent('.product-contain').remove();
+});

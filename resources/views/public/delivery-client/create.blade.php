@@ -45,17 +45,16 @@
                                     <x-select column="name" name="client_id" label="Клиент" :dataArray="$clients"/>
 
                                     <div class="container-custom">
-                                        <div class="bg-gray-light p-3 mb-4 rounded" id="js-initial" style="border: 1px solid #d1d1d1;">
+                                        <div class="bg-gray-light p-3 mb-4 rounded product-contain" id="js-initial" style="border: 1px solid #d1d1d1;">
                                             <x-select column="title" name="delivery_items[0][product_id]" label="Продукт" id="product" :dataArray="$products" />
                                             <x-input name="delivery_items[0][amount]" label="Количество" id="amount" placeholder="Количество"/>
                                             <x-input name="delivery_items[0][price_for_unit]" label="Цена" id="price" placeholder="Цена"/>
-                                            <button class="btn btn-danger js-delete">Удалить</button>
+                                            <span class="btn btn-danger js-delete">Удалить</span>
                                         </div>
                                     </div>
 
                                     <span class="btn btn-success js-add" id="add-product">Добавить продукт</span>
-
-                        </div>
+                            </div>
                         <div class="card-footer">
                             <button type="submit" class="btn btn-primary">Добавить</button>
                         </div>

@@ -65,6 +65,6 @@ class DeliveryCLientController extends Controller
             'status' => DeliveryStatusEnum::CLOSE->value,
         ]);
 
-        return redirect()->route('delivery.index');
+        return redirect()->route('delivery.show', $delivery->id);
     }
 }
