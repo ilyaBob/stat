@@ -28,6 +28,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('delivery.index') }}" class="nav-link">
+                        <i class="nav-icon far fa-image"></i>
+                        <p>Доставка</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('client.index') }}" class="nav-link">
                         <i class="nav-icon far fa-image"></i>
                         <p>Клиенты</p>
