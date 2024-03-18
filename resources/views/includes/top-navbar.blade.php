@@ -9,25 +9,11 @@
         <li class="nav-item d-none d-sm-inline-block">
             <a href="#" class="nav-link">Contact</a>
         </li>
-        <li class="nav-item d-none d-sm-inline-block">
-            @auth
-            <form action="{{route('logout')}}" method="post">
-                @csrf
-                <button class="btn btn-primary">Выйти</button>
-            </form>
-            @endauth
-            @guest
-                <a class="btn btn-primary" href="{{route('home')}}">Войти</a>
-            @endguest
-        </li>
 
     </ul>
 
     <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-            <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-                <i class="fas fa-search"></i>
-            </a>
             <div class="navbar-search-block">
                 <form class="form-inline">
                     <div class="input-group input-group-sm">
@@ -44,7 +30,17 @@
                 </form>
             </div>
         </li>
-
+        <li class="nav-item  ">
+            @auth
+                <form action="{{route('logout')}}" method="post">
+                    @csrf
+                    <button class="btn btn-primary">Выйти</button>
+                </form>
+            @endauth
+            @guest
+                <a class="btn btn-primary" href="{{route('home')}}">Войти</a>
+            @endguest
+        </li>
         <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#">
                 <i class="far fa-bell"></i>

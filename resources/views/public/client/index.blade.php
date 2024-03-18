@@ -33,13 +33,6 @@
                                     <div class="col-1">
                                         <a class="btn btn-success" href="{{ route('client.create') }}">Добавить</a>
                                     </div>
-                                    <div class="col-11">
-                                        <form action="" method="GET" class="d-flex">
-                                            <input class="form-control flex-grow-1" name="title"/>
-                                            <button type="submit" class="btn btn-primary mx-2">Поиск</button>
-                                            <a href="/" class="btn btn-light">Сбросить</a>
-                                        </form>
-                                    </div>
                                 </div>
                             </div>
                             <div class="card-body">
